@@ -28,11 +28,11 @@ python image_invert_cnn.py --training_epoch 5000 --image_resize (448,448) --lear
 
 ## Result
 
-##### Sample image
+##### Sample image (before resize)
 
 ![Alt Text](https://github.com/DevKiHyun/Image_Invert_CNN-Tensorflow/blob/master/content_image.jpg)
 
-##### Result of reconstruct image (on block4_conv1, resized)
+##### Result of reconstruct image (From feature vector of block4_conv1)
 
 ![Alt Text](https://github.com/DevKiHyun/Image_Invert_CNN-Tensorflow/blob/master/reconstructed_image.jpg)
 
