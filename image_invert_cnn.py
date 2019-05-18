@@ -40,7 +40,7 @@ if __name__ == '__main__':
 
 
     # generated_image is trainable parameter. Initialize by random_normal noise.
-    content_image = cv2.imread('example.jpg').astype(np.float32)
+    content_image = cv2.imread(content_img_path).astype(np.float32)
     content_image = cv2.cvtColor(content_image, cv2.COLOR_BGR2RGB)
     content_image = cv2.resize(content_image, image_resize, interpolation=cv2.INTER_CUBIC)
     generated_image = tf.Variable(1e-1 * tf.random_normal(shape=content_image.shape), dtype=tf.float32, name='random_noise', trainable=True)
@@ -86,7 +86,7 @@ if __name__ == '__main__':
 
     # Minimize cost
     trainble_variables = [var for var in tf.global_variables() if 'pretrained_model' not in var.name]
-    optimizer = tf.train.AdamOptimizer(learning_rate=0.01).minimize(loss, var_list=trainble_variables)
+    optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate, beta1=beta_1, beta2=beta_2, epsilon=epsilon).minimize(loss, var_list=trainble_variables)
 
 
     # Session
